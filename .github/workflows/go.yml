@@ -23,7 +23,7 @@ jobs:
       uses: actions/cache@v4
       with:
         path: ~/go/pkg/mod
-        key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+        key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }} # go.sum 파일에 변경 사항이 있을 때마다 캐시를 갱신
         restore-keys: |
           ${{ runner.os }}-go-
 
