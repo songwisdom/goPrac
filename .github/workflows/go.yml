@@ -37,7 +37,24 @@ jobs:
       run: go test -v ./...
 
     - name: Upload build artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4  # 버전 v4로 변경
       with:
         name: myapp-build
         path: ./build/myapp  # 빌드된 파일 경로
+
+    - name: Upload test results
+      uses: actions/upload-artifact@v4  # v4로 변경
+      with:
+        name: test-results
+        path: ./test-results
+
+  # 다운로드 아티팩트 예시 (다른 job에서 사용할 수 있음)
+  download:
+    runs-on: ubuntu-latest
+    needs: build  # build job을 먼저 실행한 후 다운로드 작업이 필요
+    steps:
+    - name: Download build artifact
+      uses: actions/download-artifact@v4  # v4로 변경
+      with:
+        name: myapp-build
+        path: ./downloaded-artifacts  # 다운로드할 위치
