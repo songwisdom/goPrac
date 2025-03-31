@@ -37,7 +37,7 @@ jobs:
       run: go test -v ./...
 
     - name: Upload build artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: myapp-build
         path: ./build/myapp  # 빌드된 파일 경로
