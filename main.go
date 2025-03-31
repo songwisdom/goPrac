@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main05() {
+func main() {
 	str := `chap05 - 반복문`
 	fmt.Println(str)
 
